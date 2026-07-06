@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openapi2httpie"
+version = "0.1.0"
+description = "Convert an OpenAPI/Swagger spec into ready-to-run HTTPie commands or a Postman collection you can import into HTTPie Desktop."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Alessandro" }]
+keywords = ["openapi", "swagger", "httpie", "rest", "api", "cli", "postman", "codegen"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Code Generators",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "PyYAML>=5.4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "httpie>=3.2"]
+
+[project.urls]
+Homepage = "https://github.com/AlexDevFlow/openapi2httpie"
+Issues = "https://github.com/AlexDevFlow/openapi2httpie/issues"
+
+[project.scripts]
+openapi2httpie = "openapi2httpie.cli:main"
+oa2httpie = "openapi2httpie.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
